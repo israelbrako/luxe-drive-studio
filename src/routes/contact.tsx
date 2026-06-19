@@ -45,14 +45,17 @@ function ContactPage() {
             </div>
           </div>
 
-          <form className="rounded-3xl glass shadow-luxe p-8">
+          <form
+            onSubmit={(e) => { e.preventDefault(); alert("Thanks! We'll be in touch within the hour."); (e.currentTarget as HTMLFormElement).reset(); }}
+            className="rounded-3xl glass shadow-luxe p-8"
+          >
             <h2 className="font-display text-2xl font-bold">Send us a message</h2>
             <div className="mt-6 grid gap-4">
-              <input className="rounded-xl bg-secondary/40 border border-border/40 px-4 py-3 text-sm outline-none focus:border-accent" placeholder="Your name" />
-              <input type="email" className="rounded-xl bg-secondary/40 border border-border/40 px-4 py-3 text-sm outline-none focus:border-accent" placeholder="Email address" />
+              <input required className="rounded-xl bg-secondary/40 border border-border/40 px-4 py-3 text-sm outline-none focus:border-accent" placeholder="Your name" />
+              <input required type="email" className="rounded-xl bg-secondary/40 border border-border/40 px-4 py-3 text-sm outline-none focus:border-accent" placeholder="Email address" />
               <input className="rounded-xl bg-secondary/40 border border-border/40 px-4 py-3 text-sm outline-none focus:border-accent" placeholder="Subject" />
-              <textarea rows={5} className="rounded-xl bg-secondary/40 border border-border/40 px-4 py-3 text-sm outline-none focus:border-accent resize-none" placeholder="Tell us what you're looking for…" />
-              <button type="button" className="rounded-xl bg-accent text-accent-foreground py-3.5 text-sm font-semibold hover:scale-[1.01] transition-transform">
+              <textarea required rows={5} className="rounded-xl bg-secondary/40 border border-border/40 px-4 py-3 text-sm outline-none focus:border-accent resize-none" placeholder="Tell us what you're looking for…" />
+              <button type="submit" className="rounded-xl bg-accent text-accent-foreground py-3.5 text-sm font-semibold hover:scale-[1.01] transition-transform">
                 Send message
               </button>
             </div>
