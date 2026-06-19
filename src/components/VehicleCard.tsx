@@ -1,4 +1,5 @@
 import { ArrowUpRight, Fuel, Gauge, Settings2 } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import type { Vehicle } from "@/data/vehicles";
 
 export function VehicleCard({ v, mode = "rent" }: { v: Vehicle; mode?: "rent" | "buy" }) {
@@ -58,10 +59,13 @@ export function VehicleCard({ v, mode = "rent" }: { v: Vehicle; mode?: "rent" | 
           </div>
         </div>
 
-        <button className="mt-5 group/btn flex w-full items-center justify-between rounded-xl border border-border/60 px-4 py-3 text-sm font-medium transition-all hover:border-accent hover:bg-accent hover:text-accent-foreground">
+        <Link
+          to={mode === "rent" ? "/rentals" : "/showroom"}
+          className="mt-5 group/btn flex w-full items-center justify-between rounded-xl border border-border/60 px-4 py-3 text-sm font-medium transition-all hover:border-accent hover:bg-accent hover:text-accent-foreground"
+        >
           <span>{mode === "rent" ? "Book this car" : "View details"}</span>
           <ArrowUpRight className="h-4 w-4 transition-transform group-hover/btn:rotate-45" />
-        </button>
+        </Link>
       </div>
     </article>
   );
