@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import {
   Award,
   Calendar,
@@ -14,6 +14,10 @@ import {
   Wallet,
 } from "lucide-react";
 import heroCar from "@/assets/hero-car.jpg";
+import { SiteHeader } from "@/components/SiteHeader";
+import { SiteFooter } from "@/components/SiteFooter";
+import { VehicleCard } from "@/components/VehicleCard";
+import { vehicles } from "@/data/vehicles";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { VehicleCard } from "@/components/VehicleCard";
@@ -103,7 +107,10 @@ function HomePage() {
 
       {/* QUICK BOOKING */}
       <section className="relative -mt-16 z-10 px-5 sm:px-8">
-        <form className="mx-auto max-w-6xl rounded-2xl glass shadow-luxe p-4 sm:p-6 grid gap-3 md:grid-cols-[1.2fr_1fr_1fr_1fr_auto]">
+        <form
+          onSubmit={(e) => { e.preventDefault(); navigate({ to: "/rentals" }); }}
+          className="mx-auto max-w-6xl rounded-2xl glass shadow-luxe p-4 sm:p-6 grid gap-3 md:grid-cols-[1.2fr_1fr_1fr_1fr_auto]"
+        >
           <Field icon={<MapPin className="h-4 w-4" />} label="Pickup Location">
             <input className="bg-transparent outline-none w-full text-sm placeholder:text-muted-foreground" placeholder="Los Angeles, CA" defaultValue="Los Angeles, CA" />
           </Field>
@@ -118,11 +125,12 @@ function HomePage() {
               <option>All Vehicles</option><option>Sedan</option><option>SUV</option><option>Sports</option><option>Electric</option><option>Luxury</option>
             </select>
           </Field>
-          <button className="rounded-xl bg-accent text-accent-foreground px-6 py-3.5 text-sm font-semibold inline-flex items-center justify-center gap-2 hover:scale-[1.02] transition-transform">
+          <button type="submit" className="rounded-xl bg-accent text-accent-foreground px-6 py-3.5 text-sm font-semibold inline-flex items-center justify-center gap-2 hover:scale-[1.02] transition-transform">
             <Search className="h-4 w-4" /> Search
           </button>
         </form>
       </section>
+
 
       {/* FEATURED VEHICLES */}
       <Section
