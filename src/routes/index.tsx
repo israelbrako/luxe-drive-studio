@@ -18,10 +18,6 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { VehicleCard } from "@/components/VehicleCard";
 import { vehicles } from "@/data/vehicles";
-import { SiteHeader } from "@/components/SiteHeader";
-import { SiteFooter } from "@/components/SiteFooter";
-import { VehicleCard } from "@/components/VehicleCard";
-import { vehicles } from "@/data/vehicles";
 
 export const Route = createFileRoute("/")({
   head: () => ({
